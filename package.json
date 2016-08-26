@@ -4,6 +4,7 @@
   "description": "API Example and starter kit for HACC in nodejs",
   "main": "index.js",
   "scripts": {
+    "start": "node .",
     "test": "npm test"
   },
   "repository": {
