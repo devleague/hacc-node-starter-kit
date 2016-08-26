@@ -1,0 +1,25 @@
+{
+  "name": "hacc-node-starter-kit",
+  "version": "1.0.0",
+  "description": "API Example and starter kit for HACC in nodejs",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/devleague/hacc-node-starter-kit.git"
+  },
+  "keywords": [
+    "hackathon"
+  ],
+  "author": "Jon Borgonia <jon@devleague.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/devleague/hacc-node-starter-kit/issues"
+  },
+  "homepage": "https://github.com/devleague/hacc-node-starter-kit#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
