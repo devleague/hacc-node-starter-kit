@@ -23,4 +23,20 @@ test('Contributions API', route => {
       });
   });
 
+  route.test(`GET ${contributionsEndpoint}?limit=5`, (should)=> {
+
+    agent.get(`${ contributionsEndpoint }?limit=5`)
+      .set('Accept', 'application/json')
+      .expect(200)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        if (err) {
+          return should.fail(err);
+        }
+        should.ok(res.body instanceof Array, 'response body should be an array');
+        should.equal(res.body.length, 5, 'response body should include 5 items, as the defined limit');
+        should.end();
+      });
+  });
+
 });
