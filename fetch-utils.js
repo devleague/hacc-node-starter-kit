@@ -14,7 +14,11 @@ const fetchJson = response => {
   return response.json();
 };
 
+// respond with proper status code
+const fetchError = res => err => res.status(err.status).json(err);
+
 module.exports = {
   qsEncode,
-  fetchJson
+  fetchJson,
+  fetchError
 };

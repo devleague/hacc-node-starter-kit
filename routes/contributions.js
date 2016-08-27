@@ -3,7 +3,8 @@ const Router = express.Router();
 const fetch = require('node-fetch');
 const {
   qsEncode,
-  fetchJson
+  fetchJson,
+  fetchError
 } = require('../fetch-utils');
 
 
@@ -24,7 +25,8 @@ Router.get('/', (req, res) => {
 
   fetch(url)
     .then( fetchJson )
-    .then( res.json.bind(res) );
+    .then( res.json.bind(res) )
+    .catch( fetchError(res) );
 });
 
 module.exports = Router;
