@@ -39,4 +39,20 @@ test('Contributions API', route => {
       });
   });
 
+  route.test(`GET ${contributionsEndpoint}?limit=five`, (should)=> {
+
+    agent.get(`${ contributionsEndpoint }?limit=five`)
+      .set('Accept', 'application/json')
+      .expect(400)
+      .expect('Content-Type', /json/)
+      .end((err, res) => {
+        if (err) {
+          return should.fail(err);
+        }
+        should.equal(res.body.status, 400, 'response body should include a status of 400');
+        should.ok(['status','statusText','url','body'].every( key => res.body.hasOwnProperty(key) ), 'response body should include keys [status,statusText,url,body]');
+        should.end();
+      });
+  });
+
 });
