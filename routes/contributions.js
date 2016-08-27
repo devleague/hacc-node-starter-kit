@@ -7,10 +7,17 @@ const {
 } = require('../fetch-utils');
 
 
+/*
+ * Paging enabled, defaults to limit 100
+ *   page with query params
+ *     limit => Int
+ *     offset => Int
+ */
 Router.get('/', (req, res) => {
 
   const queryParams = qsEncode({
-    $limit : 100
+    $limit : req.query.limit || 100,
+    $offset : req.query.offset || 0
   });
   const campaignContributionsEndpoint = 'https://data.hawaii.gov/resource/imub-jfpr.json';
   const url = `${campaignContributionsEndpoint}?${queryParams}`;
